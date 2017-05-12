@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Savings</title>
+    <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no" />
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <meta name="apple-mobile-web-app-title" content="Savings">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="app-icon.png">
+
+    <link rel="stylesheet" href="js/vendor/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/savings.css"/>
+
+    <script src="js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="js/vendor/jquery.mobile-1.4.5.js"></script>
+    <script src="js/savings.js"></script>
+
+</head>
+<body>
+
+    <!-- Start of Welcome screen -->
+<div data-role="page" id="screen-welcome">
+    <div data-role="header" data-position="fixed">
+        <h1> </h1>
+    </div>
+
+    <div role="main" class="ui-content main-content">
+        <h2 class="page-title">Savings</h2>
+
+        <div class="error-summary"></div>
+        <form data-ajax="false" method="post" action="#screen-phone-number" class="form" id="sign-in-form">
+            <fieldset>
+
+                <div class="row button-row">
+                    <label for="submit-sign-in" class="ui-hidden-accessible">Create Account</label>
+                    <button class="ui-shadow ui-btn-inline ui-btn ui-icon-carat-r ui-btn-icon-right ui-nodisc-icon ui-alt-icon"
+                            type="submit" id="submit-sign-in">Create Account
+                    </button>
+                </div>
+            </fieldset>
+
+        </form>
+    </div>
+    <!-- /content -->
+
+    <!--<div data-role="footer" data-position="fixed">-->
+    <!---->
+    <!--</div>-->
+</div>
+<!-- /page -->
+    <!-- Start of Sign In page -->
+<div data-role="page" id="screen-phone-number">
+    <div data-role="header" data-position="fixed">
+        <h1> </h1>
+    </div>
+
+    <div role="main" class="ui-content main-content">
+        <h2 class="page-title">Savings</h2>
+
+        <div class="error-summary"></div>
+        <form data-ajax="false" method="post" action="#landing" class="form" id="phone-number-form">
+            <fieldset>
+                <legend>Phone number</legend>
+
+                <div class="row">
+                    <label for="phone-number" class="ui-hidden-accessible">Phone number</label>
+
+                    <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear vl-input-text">
+                        <input type="tel" name="phone-number" id="phone-number" data-clear-btn="true"
+                               data-enhanced="true" placeholder="Phone number" autocomplete="off" />
+                        <a href="#" tabindex="-1" aria-hidden="true"
+                           class="ui-input-clear ui-btn ui-nodisc-icon ui-alt-icon ui-icon-delete ui-btn-icon-notext ui-corner-all ui-input-clear-hidden"
+                           title="Clear text">Clear text</a>
+                    </div>
+                </div>
+
+                <div class="row button-row">
+                    <label for="submit-phone-number" class="ui-hidden-accessible">Sign in</label>
+                    <button class="ui-shadow ui-btn-inline ui-btn ui-icon-carat-r ui-btn-icon-right ui-nodisc-icon ui-alt-icon"
+                            type="submit" id="submit-phone-number">Next
+                    </button>
+                </div>
+            </fieldset>
+
+        </form>
+    </div>
+    <!-- /content -->
+
+    <!--<div data-role="footer" data-position="fixed">-->
+    <!---->
+    <!--</div>-->
+</div>
+<!-- /page -->
+
+</body>
+</html>
