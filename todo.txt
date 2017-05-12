@@ -1,34 +1,12 @@
-Estimated 90 hours
-
-Hours so far
-=====================
-1st 2nd and 3rd -                           16 hr
-4th -                                       7 hrs
-1th - 12th  (filter)                        8 hrs
-12th  (product page)                        6 hrs
-13th  (Stock page)                          3 hrs
-13th - 14th (all but Contact and Sector)    11 hrs
-14th - Sector page                          10 hrs
-14th - Contact form                         8 hrs
-15th - Homepage filter re-starts            4 hrs
-16th - Homepage filter done                 6 hrs
-16th - Finishing off Filter +
-       Bug fixing and Testing +
-       Site clean up                        4 hrs
-18th - Site is completed                    6 hrs
-28th - Filter icons and others              4 hrs
-
-
-
 ## (must have)
 TODO
 =======================
-## Featured product carousel
+Admin screens
+        - phone number
+        - firstname
+        - lastname
+        - 4 digit pin
 
 
 
 TODO done
-=======================
-# Display carousel after pre-loaded images
-## Some sort of filter on the homepage
-Drop shadow on drop down menu
