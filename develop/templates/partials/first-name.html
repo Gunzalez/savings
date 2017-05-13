@@ -1,25 +1,25 @@
 <!-- Start of page -->
-<div data-role="page" id="screen-phone-number">
+<div data-role="page" id="screen-first-name">
     <div data-role="header" data-position="fixed">
-        <!--<a href="#"-->
-           <!--class="ui-naked-btn ui-btn ui-btn-icon-left ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-icon-notext"-->
-           <!--data-rel="back">Back</a>-->
+        <a href="#"
+           class="ui-naked-btn ui-btn ui-btn-icon-left ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-icon-notext"
+           data-rel="back">Back</a>
         <h1>Savings</h1>
     </div>
 
     <div role="main" class="ui-content main-content">
 
         <div class="error-summary"></div>
-        <form data-ajax="false" method="post" action="#screen-first-name" class="form" id="phone-number-form">
+        <form data-ajax="false" method="post" action="#screen-last-name" class="form" id="first-name-form">
             <fieldset>
-                <legend>Phone number</legend>
+                <legend>First name</legend>
 
                 <div class="row">
-                    <label for="phone-number" class="ui-hidden-accessible">Phone number</label>
+                    <label for="first-name" class="ui-hidden-accessible">First name</label>
 
                     <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear vl-input-text">
-                        <input type="tel" name="phone-number" id="phone-number" data-clear-btn="true" class="focus"
-                               data-enhanced="true" placeholder="Phone number" autocomplete="off" />
+                        <input type="text" name="first-name" id="first-name" data-clear-btn="true" class="focus"
+                               data-enhanced="true" placeholder="first name" autocomplete="off" />
                         <a href="#" tabindex="-1" aria-hidden="true"
                            class="ui-input-clear ui-btn ui-nodisc-icon ui-alt-icon ui-icon-delete ui-btn-icon-notext ui-corner-all ui-input-clear-hidden"
                            title="Clear text">Clear text</a>
@@ -27,8 +27,9 @@
                 </div>
 
                 <div class="row button-row">
+
                     <button class="ui-shadow ui-btn-inline ui-btn ui-icon-carat-r ui-btn-icon-right ui-nodisc-icon ui-alt-icon"
-                            type="submit" id="submit-phone-number">Continue
+                            type="submit" id="submit-first-name">Continue
                     </button>
                 </div>
             </fieldset>

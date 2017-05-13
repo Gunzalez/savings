@@ -2,9 +2,9 @@
 (function ($, window) {
     "use strict";
 
-    var onboarding = {};
+    var savings = {};
 
-    onboarding.CONSTANTS = {
+    savings.CONSTANTS = {
         strings : {
             clientAccount: "Client account",
             location: "Location",
@@ -12,7 +12,7 @@
         }
     };
 
-    onboarding.fun = {
+    savings.fun = {
         switchBios: function(){
             var $bio = $('.bio'),
                 rdnNumber = Math.floor((Math.random() * $bio.length) + 1);
@@ -21,7 +21,7 @@
         }
     };
 
-    onboarding.init = function(){
+    savings.init = function(){
 
         var $logoutButtons = $('.logout-button');
         $logoutButtons.on('click', function(evt){
@@ -32,16 +32,15 @@
             $.mobile.navigate(destination);
         });
 
-
         var $refreshButtons = $('.page-refresh');
         $refreshButtons.on('click', function(evt){
             evt.preventDefault();
             location.reload(); // For standalone browsers
         });
 
-        var $signInForm = $('#sign-in-form');
-        $signInForm.on('submit', function(){
-            // do some ajax to log user in
+        var $allForms = $('.form');
+        $allForms.on('submit', function(){
+            // faking form submission
             //
             var destination = $(this).attr('action');
             $.mobile.navigate(destination);
@@ -97,15 +96,15 @@
                 terms.skills = skills;
             }
 
-            if(client != onboarding.CONSTANTS.strings.clientAccount){
+            if(client != savings.CONSTANTS.strings.clientAccount){
                 terms.client = client;
             }
 
-            if(location != onboarding.CONSTANTS.strings.location){
+            if(location != savings.CONSTANTS.strings.location){
                 terms.location = location;
             }
 
-            if(cop != onboarding.CONSTANTS.strings.cop){
+            if(cop != savings.CONSTANTS.strings.cop){
                 terms.cop = cop;
             }
 
@@ -156,16 +155,19 @@
         }
     });
 
-    $(document).on("pagebeforeshow", "#people", function(){
-        var $peopleScreen = $('#people');
-        if($peopleScreen.hasClass("people-link")){
-            $("#search").val('');
-            $("#people-capabilities").val([]).selectmenu("refresh");
-            $("#people-client").val(onboarding.CONSTANTS.strings.clientAccount).selectmenu("refresh");
-            $("#people-location").val(onboarding.CONSTANTS.strings.location).selectmenu("refresh");
-            $("#people-cop").val(onboarding.CONSTANTS.strings.cop).selectmenu("refresh");
-            $peopleScreen.removeClass('people-link');
-        }
+    $(document).on("pageshow", "#screen-phone-number", function(){
+        //console.log($('#phone-number'));
+        $('.focus').focus();
+    });
+
+    $(document).on("pageshow", "#screen-first-name", function(){
+        //console.log($('#phone-number'));
+        $('.focus').focus();
+    });
+
+    $(document).on("pageshow", "#screen-last-name", function(){
+        //console.log($('#phone-number'));
+        $('.focus').focus();
     });
 
     $(document).on("pagebeforeshow", "#results", function(){
@@ -231,7 +233,7 @@
         }
 
         // just some fun
-        onboarding.fun.switchBios();
+        savings.fun.switchBios();
     });
 
     $(document).on("pagebeforeshow", "#person2", function(){
@@ -244,7 +246,7 @@
     });
 
     $(document).ready(function () {
-        onboarding.init();
+        savings.init();
     });
 
 }(jQuery, window));
