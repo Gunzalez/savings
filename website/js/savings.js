@@ -160,6 +160,14 @@
         $('.focus').focus();
     });
 
+    $(document).on("pageshow", "#screen-create-account", function(){
+        //console.log($('#phone-number'));
+        var timer = setTimeout(function(){
+            $.mobile.navigate('#screen-admin-landing');
+            clearTimeout(timer);
+        }, 2000);
+    });
+
     $(document).on("pageshow", "#screen-first-name", function(){
         //console.log($('#phone-number'));
         $('.focus').focus();
