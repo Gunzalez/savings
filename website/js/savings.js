@@ -161,7 +161,6 @@
     });
 
     $(document).on("pageshow", "#screen-create-account", function(){
-        //console.log($('#phone-number'));
         var timer = setTimeout(function(){
             $.mobile.navigate('#screen-admin-landing');
             clearTimeout(timer);

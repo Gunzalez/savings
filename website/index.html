@@ -31,21 +31,21 @@
     <div role="main" class="ui-content main-content">
         <h2 class="page-title">Savings</h2>
 
-        <div class="error-summary"></div>
-        <form data-ajax="false" method="post" action="#screen-phone-number" class="form" id="welcome-form">
-            <fieldset>
-                <div class="row button-row">
-                    <button class="ui-shadow ui-btn-inline ui-btn ui-icon-carat-r ui-nodisc-icon ui-alt-icon"
-                            type="submit" id="submit-welcome">Create account
-                    </button>
-                </div>
-                <div class="row button-row">
-                    <button class="ui-shadow ui-btn-inline ui-btn ui-icon-carat-r ui-nodisc-icon ui-alt-icon"
-                            type="submit" id="submit-login">Login
-                    </button>
-                </div>
-            </fieldset>
-        </form>
+
+        <div style="text-align: center">
+
+            <a href="#screen-phone-number" class="ui-shadow ui-btn-inline ui-btn ui-icon-carat-r ui-nodisc-icon ui-alt-icon"
+               type="submit" id="submit-welcome">Create account</a>
+
+            <br />
+
+            <a href="#screen-pin-code" class="ui-shadow ui-btn-inline ui-btn ui-icon-carat-r ui-nodisc-icon ui-alt-icon"
+               type="submit" id="submit-login">Login</a>
+
+        </div>
+
+
+
     </div>
     <!-- /content -->
 
@@ -200,12 +200,12 @@
     <div role="main" class="ui-content main-content">
 
         <div class="error-summary"></div>
-        <form data-ajax="false" method="post" action="#screen-create-account" class="form" id="pin-code-form">
+        <form data-ajax="false" method="post" action="#screen-admin-landing" class="form" id="pin-code-form">
             <fieldset>
                 <legend>4 digit pin code</legend>
 
                 <div class="row">
-                    <label for="pin-code" class="ui-hidden-accessible">Phone number</label>
+                    <label for="pin-code" class="ui-hidden-accessible">PIN code</label>
 
                     <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear vl-input-text">
                         <input type="tel" name="pin-code" id="pin-code" data-clear-btn="true" class="focus" maxlength="4"
@@ -269,32 +269,6 @@
     <!--</div>-->
 </div>
 <!-- /page -->
-    <!-- Start of page -->
-<div data-role="page" id="screen-create-account">
-    <div data-role="header" data-position="fixed">
-        <!--<a href="#"-->
-        <!--class="ui-naked-btn ui-btn ui-btn-icon-left ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-icon-notext"-->
-        <!--data-rel="back">Back</a>-->
-        <h1>Savings</h1>
-    </div>
-
-    <div role="main" class="ui-content main-content">
-
-        <div class="intro">
-            <h2>creating account...</h2>
-        </div>
-
-    </div>
-    <!-- /content -->
-
-    <!--<div data-role="footer" data-position="fixed">-->
-    <!---->
-    <!--</div>-->
-</div>
-<!-- /page -->
-
-
-
 
 </body>
 </html>
