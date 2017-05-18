@@ -17,6 +17,7 @@
 
     <script src="js/vendor/jquery-1.9.1.min.js"></script>
     <script src="js/vendor/jquery.mobile-1.4.5.js"></script>
+    <script src="js/vendor/jquery.cookie.js"></script>
     <script src="js/savings.js"></script>
 
 </head>
@@ -277,20 +278,17 @@
     </div>
 
     <div role="main" class="ui-content main-content">
-        <h4 class="page-title">Saving plans</h4>
+        <h2 class="page-title">Saving plans</h2>
         <div style="text-align: center">
         <a href="#screen-create-plan" class="ui-shadow ui-btn-inline ui-btn ui-icon-carat-r ui-nodisc-icon ui-alt-icon"
            type="submit">Create a new plan</a>
         </div>
 
-        <!--<h4 class="page-title">Existing plans</h4>-->
-        <!--<ul data-role="listview" data-inset="true">-->
+
+        <h3 id="plans-list-header" class="display-none">Existing plans</h3>
+        <ul data-role="listview" data-inset="true" id="plans-list">
             <!--<li><a href="#plan" class="ui-nodisc-icon ui-alt-icon people-link">Saving Plan 1</a></li>-->
-            <!--<li><a href="#plan" class="ui-nodisc-icon ui-alt-icon people-link">Saving Plan II</a></li>-->
-            <!--<li><a href="#plan" class="ui-nodisc-icon ui-alt-icon people-link">Saving Plan Three</a></li>-->
-            <!--<li><a href="#plan" class="ui-nodisc-icon ui-alt-icon people-link">Saving Plan 4</a></li>-->
-            <!--<li><a href="#plan" class="ui-nodisc-icon ui-alt-icon people-link">5th Saving Plan</a></li>-->
-        <!--</ul>-->
+        </ul>
     </div>
     <!-- /content -->
 
@@ -311,7 +309,7 @@
     <div role="main" class="ui-content main-content">
 
         <div class="error-summary"></div>
-        <form data-ajax="false" method="post" action="#" class="form" id="create-plan-form">
+        <form data-ajax="false" method="post" action="#screen-saving-plans" class="form" id="create-plan-form">
             <fieldset>
                 <legend class="page-title ui-hidden-accessible">New plan</legend>
 
@@ -384,7 +382,7 @@
 
                 <div class="row button-row">
                     <button class="ui-shadow ui-btn-inline ui-btn ui-icon-carat-r ui-btn-icon-right ui-nodisc-icon ui-alt-icon"
-                            type="submit" id="submit-phone-number">Continue
+                            type="submit" id="submit-phone-number">Create
                     </button>
                 </div>
             </fieldset>

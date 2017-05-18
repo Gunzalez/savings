@@ -12,6 +12,10 @@
         }
     };
 
+    savings.globals = {
+        plans: 0
+    };
+
     savings.fun = {
         switchBios: function(){
             var $bio = $('.bio'),
@@ -42,6 +46,11 @@
         $allForms.on('submit', function(){
             // faking form submission
             //
+            if(this.id == 'create-plan-form'){
+
+                savings.globals.plans = savings.globals.plans + 1;
+            }
+
             var destination = $(this).attr('action');
             $.mobile.navigate(destination);
             return false;
@@ -155,9 +164,25 @@
         }
     });
 
-    $(document).on("pageshow", "#screen-phone-number", function(){
-        //console.log($('#phone-number'));
-        $('.focus').focus();
+    $(document).on("pagebeforeshow", "#screen-saving-plans", function(){
+
+        var $plansList = $('#plans-list'),
+            plans = savings.globals.plans;
+
+        if(plans > 0){
+            $plansList.empty();
+            $('#plans-list-header').removeAttr('class');
+            for(var x=0; x<plans; x++){
+                $plansList.append('<li><a href="#" class="ui-nodisc-icon ui-alt-icon">Saving Plan '+ (x+1) +'</a></li>');
+            }
+
+            //$('<li><a href="#plan" class="ui-nodisc-icon ui-alt-icon people-link">Saving Plan 33</a></li>').appendTo($plansList).enhanceWithin();
+
+            //$("#screen-saving-plans").trigger('create');
+            //$plansList.enhanceWithin();
+            $("#screen-saving-plans").enhanceWithin();
+        }
+
     });
 
     $(document).on("pageshow", "#screen-create-account", function(){
