@@ -13,16 +13,8 @@
     };
 
     savings.globals = {
-        plans: 0
-    };
-
-    savings.fun = {
-        switchBios: function(){
-            var $bio = $('.bio'),
-                rdnNumber = Math.floor((Math.random() * $bio.length) + 1);
-            $bio.removeClass('remove');
-            $bio.not($bio.eq(rdnNumber-1)).addClass('remove');
-        }
+        plans: 0,
+        friends: 0
     };
 
     savings.init = function(){
@@ -47,8 +39,11 @@
             // faking form submission
             //
             if(this.id == 'create-plan-form'){
-
                 savings.globals.plans = savings.globals.plans + 1;
+            }
+
+            if(this.id == 'friends-family-form'){
+                savings.globals.friends = savings.globals.friends + 1;
             }
 
             var destination = $(this).attr('action');
@@ -77,13 +72,7 @@
             $(panelID).panel("close");
         });
 
-        $('.people-link').on('click', function(evt){
-            evt.preventDefault();
 
-            $('#people').addClass("people-link");
-            var destination = $(this).attr('href');
-            $.mobile.navigate(destination);
-        });
 
         var $peopleForm = $('#people-form');
         $peopleForm.on('submit', function(){
@@ -164,10 +153,10 @@
         }
     });
 
-    $(document).on("pagebeforeshow", "#screen-saving-plans", function(){
+    $(document).on("pageshow", "#screen-saving-plans", function(){
 
         var $plansList = $('#plans-list'),
-            plans = savings.globals.plans;
+                plans = savings.globals.plans;
 
         if(plans > 0){
             $plansList.empty();
@@ -178,9 +167,27 @@
 
             //$('<li><a href="#plan" class="ui-nodisc-icon ui-alt-icon people-link">Saving Plan 33</a></li>').appendTo($plansList).enhanceWithin();
 
-            //$("#screen-saving-plans").trigger('create');
-            //$plansList.enhanceWithin();
+            $plansList.trigger('create');
+            //$plansList.listview();
             $("#screen-saving-plans").enhanceWithin();
+        }
+
+    });
+
+    $(document).on("pageshow", "#screen-friends-family", function(){
+
+        var $friendsList = $('#friends-list'),
+                friends = savings.globals.friends;
+
+        if(friends > 0){
+            $friendsList.empty();
+            $('#friends-list-header').removeAttr('class');
+            for(var x=0; x<friends; x++){
+                $friendsList.append('<li><a href="#" class="ui-nodisc-icon ui-alt-icon">Friend '+ (x+1) +'</a></li>');
+            }
+            $friendsList.trigger('create');
+            //$plansList.listview();
+            $("#screen-friends-family").enhanceWithin();
         }
 
     });
@@ -264,18 +271,8 @@
             $('.personName').text(person);
         }
 
-        // just some fun
-        savings.fun.switchBios();
     });
 
-    $(document).on("pagebeforeshow", "#person2", function(){
-
-        if (typeof(Storage) !== "undefined") {
-            var person = localStorage.getItem("person");
-            $('.personName').text(person);
-        }
-
-    });
 
     $(document).ready(function () {
         savings.init();
