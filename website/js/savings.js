@@ -153,7 +153,7 @@
         }
     });
 
-    $(document).on("pageshow", "#screen-saving-plans", function(){
+    $(document).on("pagebeforeshow", "#screen-saving-plans", function(){
 
         var $plansList = $('#plans-list'),
                 plans = savings.globals.plans;
@@ -164,17 +164,12 @@
             for(var x=0; x<plans; x++){
                 $plansList.append('<li><a href="#" class="ui-nodisc-icon ui-alt-icon">Saving Plan '+ (x+1) +'</a></li>');
             }
-
-            //$('<li><a href="#plan" class="ui-nodisc-icon ui-alt-icon people-link">Saving Plan 33</a></li>').appendTo($plansList).enhanceWithin();
-
-            $plansList.trigger('create');
-            //$plansList.listview();
-            $("#screen-saving-plans").enhanceWithin();
+            $plansList.listview('refresh');
         }
 
     });
 
-    $(document).on("pageshow", "#screen-friends-family", function(){
+    $(document).on("pagebeforeshow", "#screen-friends-family", function(){
 
         var $friendsList = $('#friends-list'),
                 friends = savings.globals.friends;
@@ -183,11 +178,9 @@
             $friendsList.empty();
             $('#friends-list-header').removeAttr('class');
             for(var x=0; x<friends; x++){
-                $friendsList.append('<li><a href="#" class="ui-nodisc-icon ui-alt-icon">Friend '+ (x+1) +'</a></li>');
+                $friendsList.append('<li><a href="#" class="ui-nodisc-icon ui-alt-icon">'+ (x+1) +' Adam / 0785 1063 452</a></li>');
             }
-            $friendsList.trigger('create');
-            //$plansList.listview();
-            $("#screen-friends-family").enhanceWithin();
+            $friendsList.listview('refresh');
         }
 
     });

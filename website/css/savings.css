@@ -8,8 +8,11 @@
 .cleft {
   clear: left; }
 
-h2, h3, h4 {
+h2 {
   text-align: center;
+  font-weight: 100; }
+
+h3, h4 {
   font-weight: 100; }
 
 body {
