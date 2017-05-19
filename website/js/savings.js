@@ -12,6 +12,14 @@
         }
     };
 
+    savings.utils = {
+        isLoggedIn : function(){
+            if($.cookie('account') == undefined){
+                $.mobile.navigate('#screen-welcome');
+            }
+        }
+    };
+
     savings.init = function(){
 
         $('#delete-account').on('click', function(evt){
@@ -131,6 +139,8 @@
 
     $(document).on("pagebeforeshow", "#screen-saving-plans", function(){
 
+        savings.utils.isLoggedIn();
+
         var $plansList = $('#plans-list'),
                 plans = 0;
 
@@ -150,6 +160,8 @@
     });
 
     $(document).on("pagebeforeshow", "#screen-friends-family", function(){
+
+        savings.utils.isLoggedIn();
 
         var $friendsList = $('#friends-list'),
                 friends = 0;
@@ -251,14 +263,37 @@
         $('#listOfNames').parent().find('a').trigger('click'); // causing filter field to empty out
     });
 
-    $(document).on("pagebeforeshow", "#person", function(){
-
-        if (typeof(Storage) !== "undefined") {
-            var person = localStorage.getItem("person");
-            $('.personName').text(person);
-        }
-
-    });
+    //$(document).on("pagebeforeshow", "#screen-first-name", function(){
+    //    savings.utils.isLoggedIn();
+    //});
+    //
+    //$(document).on("pagebeforeshow", "#screen-last-name", function(){
+    //    savings.utils.isLoggedIn();
+    //});
+    //
+    //$(document).on("pagebeforeshow", "#screen-add-saver", function(){
+    //    savings.utils.isLoggedIn();
+    //});
+    //
+    //$(document).on("pagebeforeshow", "#screen-admin-landing", function(){
+    //    savings.utils.isLoggedIn();
+    //});
+    //
+    //$(document).on("pagebeforeshow", "#screen-create-plan", function(){
+    //    savings.utils.isLoggedIn();
+    //});
+    //
+    //$(document).on("pagebeforeshow", "#screen-friends-family", function(){
+    //    savings.utils.isLoggedIn();
+    //});
+    //
+    //$(document).on("pagebeforeshow", "#screen-pin-code", function(){
+    //    savings.utils.isLoggedIn();
+    //});
+    //
+    //$(document).on("pagebeforeshow", "#screen-saving-plans", function(){
+    //    savings.utils.isLoggedIn();
+    //});
 
 
     $(document).ready(function () {
