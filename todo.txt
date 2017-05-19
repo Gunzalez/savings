@@ -16,3 +16,4 @@ TODO done
 ## Help
 =================================
 https://api.jquerymobile.com/category/events/
+https://github.com/carhartl/jquery-cookie

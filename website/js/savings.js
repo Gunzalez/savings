@@ -12,12 +12,12 @@
         }
     };
 
-    savings.globals = {
-        plans: 0,
-        friends: 0
-    };
-
     savings.init = function(){
+
+        $('#delete-account').on('click', function(evt){
+            evt.preventDefault();
+            $.mobile.navigate('#screen-deleting-account');
+        });
 
         var $logoutButtons = $('.logout-button');
         $logoutButtons.on('click', function(evt){
@@ -38,12 +38,29 @@
         $allForms.on('submit', function(){
             // faking form submission
             //
+
             if(this.id == 'create-plan-form'){
-                savings.globals.plans = savings.globals.plans + 1;
+                if($.cookie('plans') !== undefined ){
+                    var plans = parseInt($.cookie('plans'));
+                    plans++;
+                    $.cookie('plans', plans);
+                } else {
+                    $.cookie('plans', 1);
+                }
             }
 
             if(this.id == 'friends-family-form'){
-                savings.globals.friends = savings.globals.friends + 1;
+                if($.cookie('friends') !== undefined ){
+                    var friends = parseInt($.cookie('friends'));
+                    friends++;
+                    $.cookie('friends', friends);
+                } else {
+                    $.cookie('friends', 1);
+                }
+            }
+
+            if(this.id == 'pin-code-form'){
+                $.cookie('account', 'true');
             }
 
             var destination = $(this).attr('action');
@@ -52,17 +69,6 @@
         });
 
 
-
-        var $nameLinks = $('#aListOfNames').find('a');
-        $nameLinks.on('click', function(evt){
-            evt.preventDefault();
-
-            if (typeof(Storage) !== "undefined") {
-                localStorage.setItem("person", $(this).text());
-            }
-            var destination = $(this).attr('href');
-            $.mobile.navigate(destination);
-        });
 
         var $closePanelButtons = $('.close-panel');
         $closePanelButtons.on('click', function(evt){
@@ -122,41 +128,15 @@
         });
     };
 
-    $(document).on("pagebeforecreate", "#people", function(){
-
-        if (typeof(Storage) !== "undefined") {
-            var searchTermStrings = localStorage.getItem("searchTerms");
-            if(searchTermStrings !== null){
-                var termsObj = JSON.parse(searchTermStrings),
-                        $peopleForm = $('#people-form');
-
-                if(termsObj.hasOwnProperty('field')){
-                    $('#search', $peopleForm).val(termsObj.field);
-                }
-
-                if(termsObj.hasOwnProperty('client')){
-                    $('#people-capabilities', $peopleForm).val(termsObj.skills);
-                }
-
-                if(termsObj.hasOwnProperty('client')){
-                    $('#people-client', $peopleForm).val(termsObj.client);
-                }
-
-                if(termsObj.hasOwnProperty('location')){
-                    $('#people-location', $peopleForm).val(termsObj.location);
-                }
-
-                if(termsObj.hasOwnProperty('cop')){
-                    $('#people-cop', $peopleForm).val(termsObj.cop);
-                }
-            }
-        }
-    });
 
     $(document).on("pagebeforeshow", "#screen-saving-plans", function(){
 
         var $plansList = $('#plans-list'),
-                plans = savings.globals.plans;
+                plans = 0;
+
+        if($.cookie('plans') !== undefined ){
+            plans = parseInt($.cookie('plans'));
+        }
 
         if(plans > 0){
             $plansList.empty();
@@ -172,7 +152,11 @@
     $(document).on("pagebeforeshow", "#screen-friends-family", function(){
 
         var $friendsList = $('#friends-list'),
-                friends = savings.globals.friends;
+                friends = 0;
+
+        if($.cookie('friends') !== undefined ){
+            friends = parseInt($.cookie('friends'));
+        }
 
         if(friends > 0){
             $friendsList.empty();
@@ -185,9 +169,12 @@
 
     });
 
-    $(document).on("pageshow", "#screen-create-account", function(){
+    $(document).on("pageshow", "#screen-deleting-account", function(){
         var timer = setTimeout(function(){
-            $.mobile.navigate('#screen-admin-landing');
+            $.mobile.navigate('#screen-welcome');
+            $.removeCookie('plans');
+            $.removeCookie('friends');
+            $.removeCookie('account');
             clearTimeout(timer);
         }, 2000);
     });
@@ -197,9 +184,16 @@
         $('.focus').focus();
     });
 
-    $(document).on("pageshow", "#screen-last-name", function(){
-        //console.log($('#phone-number'));
-        $('.focus').focus();
+    $(document).on("pagebeforeshow", "#screen-welcome", function(){
+        if($.cookie('account') !== undefined){
+            $('#submit-welcome').addClass('display-none');
+            $('#submit-login').removeClass('display-none');
+            $('#delete-account').removeClass('display-none');
+        } else {
+            $('#submit-welcome').removeClass('display-none');
+            $('#submit-login').addClass('display-none');
+            $('#delete-account').addClass('display-none');
+        }
     });
 
     $(document).on("pagebeforeshow", "#results", function(){
