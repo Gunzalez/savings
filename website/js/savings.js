@@ -275,9 +275,20 @@
     //    savings.utils.isLoggedIn();
     //});
     //
-    //$(document).on("pagebeforeshow", "#screen-admin-landing", function(){
-    //    savings.utils.isLoggedIn();
-    //});
+    $(document).on("pagebeforeshow", "#screen-admin-landing", function(){
+        savings.utils.isLoggedIn();
+        if($.cookie('friends') !== undefined){
+            $('#friends-count').empty().html($.cookie('friends'))
+        } else {
+            $('#friends-count').empty().html('0');
+        }
+
+        if($.cookie('plans') !== undefined){
+            $('#plans-count').empty().html($.cookie('plans'))
+        } else {
+            $('#plans-count').empty().html('0');
+        }
+    });
     //
     //$(document).on("pagebeforeshow", "#screen-create-plan", function(){
     //    savings.utils.isLoggedIn();
