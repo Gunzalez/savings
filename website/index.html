@@ -254,7 +254,7 @@
             <li>
                 <a href="#screen-saving-plans" class="ui-nodisc-icon ui-alt-icon">
                     Saving plans
-                    <span class="ui-li-count" id="plans-count"></span>
+                    <span class="ui-li-count" id="plans-count">0</span>
                 </a>
             </li>
         </ul>
@@ -277,8 +277,7 @@
     <div role="main" class="ui-content main-content">
         <h2 class="page-title">Saving plans</h2>
         <div style="text-align: center">
-        <a href="#screen-create-plan" class="ui-shadow ui-btn-inline ui-btn ui-icon-carat-r ui-nodisc-icon ui-alt-icon"
-           type="submit">Create a new plan</a>
+        <a href="#screen-create-plan" class="ui-shadow ui-btn-inline ui-btn ui-icon-carat-r ui-nodisc-icon ui-alt-icon">Create a new plan</a>
         </div>
 
         <ul data-role="listview" data-inset="true" id="plans-list">
@@ -459,8 +458,7 @@
     <div role="main" class="ui-content main-content">
         <h2 class="page-title">Friends</h2>
         <div style="text-align: center">
-        <a href="#screen-add-saver" class="ui-shadow ui-btn-inline ui-btn ui-icon-carat-r ui-nodisc-icon ui-alt-icon"
-           type="submit">Add a new friend</a>
+        <a href="#screen-add-saver" class="ui-shadow ui-btn-inline ui-btn ui-icon-carat-r ui-nodisc-icon ui-alt-icon">Add a new friend</a>
         </div>
 
         <ul data-role="listview" data-inset="true" id="friends-list">
@@ -484,6 +482,42 @@
 
     <div role="main" class="ui-content main-content">
         <h2 class="page-title">Deleting account...</h2>
+    </div>
+    <!-- /content -->
+
+    <!--<div data-role="footer" data-position="fixed">-->
+    <!---->
+    <!--</div>-->
+</div>
+<!-- /page -->
+    <!-- Start of page -->
+<div data-role="page" id="screen-plan-details">
+    <div data-role="header" data-position="fixed">
+        <a href="#"
+           class="ui-naked-btn ui-btn ui-btn-icon-left ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-icon-notext"
+           data-rel="back">Back</a>
+        <h1>Savings</h1>
+    </div>
+
+    <div role="main" class="ui-content main-content">
+
+        <div class="intro">
+            <h2 class="page-title" id="plan-name">ff</h2>
+        </div>
+
+        <ul data-role="listview" data-inset="true">
+            <li>
+                <a href="#screen-edit-plan" class="ui-nodisc-icon ui-alt-icon">
+                    Plan details
+                </a>
+            </li>
+            <li>
+                <a href="#screen-plan-members" class="ui-nodisc-icon ui-alt-icon">
+                    Members
+                    <span class="ui-li-count" id="members-count">0</span>
+                </a>
+            </li>
+        </ul>
     </div>
     <!-- /content -->
 
