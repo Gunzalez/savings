@@ -1,16 +1,17 @@
 <!-- Start of page -->
 <div data-role="page" id="screen-plan-details">
     <div data-role="header" data-position="fixed">
-        <a href="#"
-           class="ui-naked-btn ui-btn ui-btn-icon-left ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-icon-notext"
-           data-rel="back">Back</a>
+        <a href="#screen-saving-plans"
+           class="ui-naked-btn ui-btn ui-btn-icon-left ui-icon-carat-l ui-nodisc-icon ui-alt-icon ui-btn-icon-notext">Back</a>
         <h1>Savings</h1>
     </div>
 
     <div role="main" class="ui-content main-content">
 
         <div class="intro">
-            <h2 class="page-title" id="plan-name">ff</h2>
+            <h2 class="page-title">
+                <span id="plan-name"></span>
+            </h2>
         </div>
 
         <ul data-role="listview" data-inset="true">
@@ -19,10 +20,15 @@
                     Plan details
                 </a>
             </li>
-            <li>
-                <a href="#screen-plan-members" class="ui-nodisc-icon ui-alt-icon">
-                    Members
-                    <span class="ui-li-count" id="members-count">0</span>
+            <li class="has-select">
+                <select name="friends" id="friends" multiple="multiple" data-icon="user" data-native-menu="false">
+                    <option>Add members</option>
+                    <!-- members inserted with js -->
+                </select>
+            </li>
+            <li data-icon="power">
+                <a href="#screen-edit-plan" class="ui-nodisc-icon ui-alt-icon">
+                    Start plan
                 </a>
             </li>
         </ul>

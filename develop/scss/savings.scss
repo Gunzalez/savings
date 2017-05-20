@@ -319,3 +319,17 @@ p {
 
 
 
+.has-select {
+    padding: 0 !important;
+
+    .ui-select {
+        margin: 0;
+    }
+
+    a {
+        border: none;
+    }
+}
+
+
+

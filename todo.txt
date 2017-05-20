@@ -17,3 +17,4 @@ TODO done
 =================================
 https://api.jquerymobile.com/category/events/
 https://github.com/carhartl/jquery-cookie
+https://www.w3schools.com/jquerymobile/jquerymobile_ref_icons.asp

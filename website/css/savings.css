@@ -254,3 +254,10 @@ p {
 
 .display-none {
   display: none; }
+
+.has-select {
+  padding: 0 !important; }
+  .has-select .ui-select {
+    margin: 0; }
+  .has-select a {
+    border: none; }

@@ -5,7 +5,7 @@
     var savings = {};
 
     savings.globals = {
-        plan: null
+
     };
 
     savings.utils = {
@@ -25,7 +25,7 @@
 
         $('body').on('click',".plan-details-link", function(e){
             e.preventDefault();
-            savings.globals.plan = this.id;
+            $.cookie('plan', this.id);
             $.mobile.navigate('#screen-plan-details');
         });
 
@@ -64,10 +64,6 @@
             return false;
         });
 
-
-
-
-
         //var $logoutButtons = $('.logout-button');
         //$logoutButtons.on('click', function(evt){
         //    evt.preventDefault();
@@ -90,9 +86,6 @@
         //    var panelID = '#' + $(this).parents('.panel').attr('id');
         //    $(panelID).panel("close");
         //});
-
-
-
     };
 
 
@@ -133,7 +126,7 @@
             $friendsList.empty();
             $('#friends-list-header').removeAttr('class');
             for(var x=0; x<friends; x++){
-                $friendsList.append('<li><a href="#" class="ui-nodisc-icon ui-alt-icon">'+ (x+1) +' Adam / 0785 1063 452</a></li>');
+                $friendsList.append('<li><a href="#" class="ui-nodisc-icon ui-alt-icon">'+ (x+1) +' Adam (0785 1063 452)</a></li>');
             }
             $friendsList.listview('refresh');
         }
@@ -144,6 +137,7 @@
         var timer = setTimeout(function(){
             $.mobile.navigate('#screen-welcome');
             $.removeCookie('plans');
+            $.removeCookie('plan');
             $.removeCookie('friends');
             $.removeCookie('account');
             clearTimeout(timer);
@@ -168,13 +162,26 @@
     });
 
     $(document).on("pagebeforeshow", "#screen-plan-details", function(){
-        console.log($('#plan-name'));
-        console.log(savings.globals.plan);
-        console.log('Saving plan');
-        $('#plan-name').empty().html('Saving plan '+savings.globals.plan);
+
+        var $parent = $('#screen-plan-details'),
+            $friendsList = $('#friends', $parent),
+            friends = null,
+            plan = null;
+
+        if($.cookie('plan') !== undefined ){
+            plan = parseInt($.cookie('plan'));
+        }
+        $('#plan-name', $parent).empty().html('Saving Plan '+plan);
 
 
-
+        if($.cookie('friends') !== undefined ){
+            friends = parseInt($.cookie('friends'));
+            $friendsList.empty().append('<option>Plan members</option>');
+            for(var x=0; x<friends; x++){
+                $friendsList.append('<option value="id-'+ (x+1) +'">Adam (0785 1063 452)</option>');
+            }
+            $friendsList.selectmenu("refresh");
+        }
     });
 
 
